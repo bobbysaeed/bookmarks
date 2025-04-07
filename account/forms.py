@@ -21,6 +21,19 @@ class UserRegistrationForm(forms.ModelForm):
 
 
     def clean_password2(self):
+        """
+        Validates that the two password fields match.
+
+        This method is automatically called during form validation to ensure
+        that the `password` and `password2` fields contain the same value.
+        If the passwords do not match, a ValidationError is raised.
+
+        Returns:
+            str: The validated value of the `password2` field.
+
+        Raises:
+            forms.ValidationError: If the `password` and `password2` fields do not match.
+        """
         cd = self.cleaned_data
         if cd['password'] != cd['password2']:
             raise forms.ValidationError("Passwords don't match.")
