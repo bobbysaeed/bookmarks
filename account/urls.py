@@ -1,7 +1,7 @@
 from django.contrib.auth import views as auth_views
 from django.urls import include, path
 
-from .views import dashboard
+from .views import dashboard, register
 
 urlpatterns = [
     path('', include('django.contrib.auth.urls')),
@@ -22,4 +22,5 @@ urlpatterns = [
     #     name='password_reset_complete'
     #     ),
     path('', dashboard, name='dashboard'),
+    path('register/', register, name='register'),
 ]
