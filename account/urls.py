@@ -3,6 +3,7 @@ from django.urls import include, path
 
 from .views import dashboard, register
 
+
 urlpatterns = [
     path('', include('django.contrib.auth.urls')),
     # path('login/', auth_views.LoginView.as_view(), name='login'),
