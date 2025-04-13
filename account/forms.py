@@ -38,3 +38,22 @@ class UserRegistrationForm(forms.ModelForm):
         if cd['password'] != cd['password2']:
             raise forms.ValidationError("Passwords don't match.")
         return cd['password2']
+
+
+class UserEditForm(forms.ModelForm):
+    """
+    A form for editing user information.
+
+    This form allows users to update their first name, last name, and email address.
+    It is based on the user model returned by `get_user_model()`.
+
+    Attributes:
+        Meta (class): Specifies the model and fields to include in the form.
+            - model: The user model (retrieved using `get_user_model()`).
+            - fields: A list of fields to include in the form (`first_name`, `last_name`, `email`).
+    """
+    class Meta:
+        model = get_user_model()
+        fields = ['first_name', 'last_name', 'email']
+
+
