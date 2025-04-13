@@ -1,6 +1,7 @@
 from django import forms
 from django.contrib.auth import get_user_model
 
+from .models import Profile
 class LoginForm(forms.Form):
     username = forms.CharField()
     password = forms.CharField(widget=forms.PasswordInput)
@@ -57,3 +58,18 @@ class UserEditForm(forms.ModelForm):
         fields = ['first_name', 'last_name', 'email']
 
 
+class ProfileEditForm(forms.ModelForm):
+    """
+    A form for editing the user's profile information.
+
+    This form allows users to update their profile details, such as their date of birth
+    and profile photo. It is based on the `Profile` model.
+
+    Attributes:
+        Meta (class): Specifies the model and fields to include in the form.
+            - model: The `Profile` model.
+            - fields: A list of fields to include in the form (`date_of_birth`, `photo`).
+    """
+    class Meta:
+        model = Profile
+        fields = ['date_of_birth', 'photo']
