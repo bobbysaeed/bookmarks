@@ -77,6 +77,32 @@ class UserEditForm(forms.ModelForm):
         fields = ['first_name', 'last_name', 'email']
 
 
+    def clean_email(self):
+        """
+        Validate the email field to ensure its uniqueness.
+
+        This method checks if the email provided in the form's cleaned_data
+        already exists in the User model, excluding the current instance
+        (useful when updating an existing user). If a duplicate email is found,
+        it raises a ValidationError.
+
+        Returns:
+            str: The validated email address.
+
+        Raises:
+            forms.ValidationError: If the email is already in use by another user.
+        """
+        data = self.cleaned_data['email']
+        qs = User.objects.exclude(
+            id=self.instance.id
+        ).filter(
+            email=data
+        )
+        if qs.exists():
+            raise forms.ValidationError('Email already in use.')
+        return data
+
+
 class ProfileEditForm(forms.ModelForm):
     """
     A form for editing the user's profile information.
