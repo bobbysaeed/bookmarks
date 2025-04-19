@@ -1,0 +1,22 @@
+asgiref @ file:///croot/asgiref_1724072470684/work
+certifi==2025.1.31
+cffi==1.17.1
+charset-normalizer==3.4.1
+cryptography==44.0.2
+defusedxml==0.7.1
+Django @ file:///croot/django_1731615954020/work
+django-taggit==5.0.1
+idna==3.10
+Markdown==3.6
+oauthlib==3.2.2
+pillow==10.3.0
+pycparser==2.22
+PyJWT==2.10.1
+python-decouple==3.8
+python3-openid==3.2.0
+requests==2.32.3
+requests-oauthlib==2.0.0
+social-auth-app-django==5.4.0
+social-auth-core==4.5.6
+sqlparse @ file:///croot/sqlparse_1690901927333/work
+urllib3==2.4.0
