@@ -1,4 +1,9 @@
 media/
-cert.crt
-cert.key
+*.crt
+*.key
 .env
+*.pyc
+__pycache__/
+db.sqlite3
+.env.*
+!.env.example
