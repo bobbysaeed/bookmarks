@@ -1,1 +1,4 @@
 media/
+cert.crt
+cert.key
+.env
